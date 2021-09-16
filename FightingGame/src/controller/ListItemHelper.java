@@ -29,10 +29,10 @@ public class ListItemHelper {
 	public void deleteItem(ListItem toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<ListItem>typedQuery = em.createQuery("select li from ListItem li where li.game = :selectedGame and li.character = :selectedCharacter", ListItem.class);
+		TypedQuery<ListItem>typedQuery = em.createQuery("select li from ListItem li where li.game = :selectedGame and li.year = :selectedYear", ListItem.class);
 		
 		typedQuery.setParameter("selectedGame", toDelete.getGame());
-		typedQuery.setParameter("selectedCharacter", toDelete.getCharacter());
+		typedQuery.setParameter("selectedYear", toDelete.getYear());
 		
 		typedQuery.setMaxResults(1);
 		
@@ -73,12 +73,12 @@ public class ListItemHelper {
 		return foundItems;
 	}
 
-	public List<ListItem> searchForItemByCharacter(String characterName) {
+	public List<ListItem> searchForItemByYear(String yearReleased) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<ListItem> typedQuery = em.createQuery("select li from ListItem li where li.character = :selectedCharacter", ListItem.class);
-		typedQuery.setParameter("selectedCharacter", characterName);
+		TypedQuery<ListItem> typedQuery = em.createQuery("select li from ListItem li where li.year = :selectedYear", ListItem.class);
+		typedQuery.setParameter("selectedYear", yearReleased);
 		
 		List<ListItem> foundItems = typedQuery.getResultList();
 		em.close();

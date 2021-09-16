@@ -13,9 +13,9 @@ public class StartProgram {
 			// TODO Auto-generated method stub
 			System.out.print("Enter a game: ");
 			String game = in.nextLine();
-			System.out.print("Enter a character: ");
-			String character = in.nextLine();
-			ListItem toAdd = new ListItem(game, character);
+			System.out.print("Enter a year: ");
+			String year = in.nextLine();
+			ListItem toAdd = new ListItem(game, year);
 			lih.InsertItem(toAdd);
 		}
 
@@ -23,9 +23,9 @@ public class StartProgram {
 			// TODO Auto-generated method stub
 			System.out.print("Enter the game to delete: ");
 			String game = in.nextLine();
-			System.out.print("Enter the character to delete: ");
-			String character = in.nextLine();
-			ListItem toDelete = new ListItem(game, character);
+			System.out.print("Enter the year to delete: ");
+			String year = in.nextLine();
+			ListItem toDelete = new ListItem(game, year);
 			lih.deleteItem(toDelete);
 		}
 
@@ -33,7 +33,7 @@ public class StartProgram {
 			// TODO Auto-generated method stub
 			System.out.println("How would you like to search? ");
 			System.out.println("1 : Search by Game");
-			System.out.println("2 : Search by Character");
+			System.out.println("2 : Search by Year");
 			int searchBy = in.nextInt();
 			in.nextLine();
 			List<ListItem> foundItems;
@@ -43,8 +43,8 @@ public class StartProgram {
 				foundItems = lih.searchForItemByGame(gameName);
 			} else {
 				System.out.print("Enter the character name: ");
-				String characterName = in.nextLine();
-				foundItems = lih.searchForItemByCharacter(characterName);
+				String releaseYear = in.nextLine();
+				foundItems = lih.searchForItemByYear(releaseYear);
 
 			}
 
@@ -57,9 +57,9 @@ public class StartProgram {
 				int idToEdit = in.nextInt();
 
 				ListItem toEdit = lih.searchForItemById(idToEdit);
-				System.out.println("Retrieved " + toEdit.getCharacter() + " from " + toEdit.getGame());
+				System.out.println("Retrieved " + toEdit.getYear() + " from " + toEdit.getGame());
 				System.out.println("1 : Update Game");
-				System.out.println("2 : Update Character");
+				System.out.println("2 : Update Year");
 				int update = in.nextInt();
 				in.nextLine();
 
@@ -68,9 +68,9 @@ public class StartProgram {
 					String newGame = in.nextLine();
 					toEdit.setGame(newGame);
 				} else if (update == 2) {
-					System.out.print("New Character: ");
-					String newCharacter = in.nextLine();
-					toEdit.setCharacter(newCharacter);
+					System.out.print("New Year: ");
+					String newYear = in.nextLine();
+					toEdit.setYear(newYear);
 				}
 
 				lih.updateItem(toEdit);

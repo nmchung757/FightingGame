@@ -15,14 +15,14 @@ public class ListItem {
 	private int id;
 	@Column(name="GAME")
 	private String game;
-	@Column(name="CHARACTER")
-	private String character;
+	@Column(name="YEAR")
+	private String year;
 	
 	public ListItem() {
 	}
-	public ListItem(String game, String character) {
+	public ListItem(String game, String year) {
 		this.game = game;
-		this.character = character;
+		this.year = year;
 	}
 
 	public int getId() {
@@ -37,14 +37,14 @@ public class ListItem {
 	public void setGame(String game) {
 		this.game = game;
 	}
-	public String getCharacter() {
-		return character;
+	public String getYear() {
+		return year;
 	}
-	public void setCharacter(String character) {
-		this.character = character;
+	public void setYear(String year) {
+		this.year = year;
 	}
 	
 	public String returnItemDetails() {
-		return this.game + ": " + this.character;
+		return this.game + ": " + this.year;
 	}
 }
